@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Narrative Report - Peer Wellness Session</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .photo-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .photo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body id="top">
+
+<header class="s-header" style="position: relative; background: #000; padding: 20px;">
+    <div class="header-logo" style="display: inline-block;">
+        <a class="site-logo" href="index.html">
+            <img src="images/logo.png" alt="Homepage" style="height: 40px;">
+        </a>
+    </div>
+
+    <nav class="header-nav-wrap" style="display: inline-block; margin-left: 40px;">
+        <ul class="header-nav" style="list-style: none; margin: 0; padding: 0; display: flex; gap: 25px; align-items: center;">
+            <li class="current" style="position: relative;">
+                <a class="smoothscroll" href="#home" title="home" style="text-decoration: none; color: white;">Home</a>
+            </li>
+            <li style="position: relative;">
+                <a class="smoothscroll" href="#about" title="about" style="text-decoration: none; color: white;">About Me</a>
+            </li>
+            <li style="position: relative;">
+                <a class="smoothscroll" href="#works" title="works" style="text-decoration: none; color: white;">Gallery</a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="dropdown" style="position: relative;">
+                <a class="smoothscroll" href="#blog" title="blog" style="text-decoration: none; color: white;">Narrative Reports</a>
+                <ul class="dropdown-content" style="
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: #fff;
+                    min-width: 220px;
+                    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                    z-index: 999;
+                ">
+                    <li><a href="week8.html" style="display: block; padding: 12px 16px; color: #333; text-decoration: none;">Week 8</a></li>
+                    <li><a href="week9.html" style="display: block; padding: 12px 16px; color: #333; text-decoration: none;">Week 9</a></li>
+                    <li><a href="week10.html" style="display: block; padding: 12px 16px; color: #333; text-decoration: none;">Week 10</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <a class="header-menu-toggle" href="#0" style="position: absolute; right: 20px; top: 20px; text-decoration: none; color: white;">
+        <span>Menu</span>
+    </a>
+
+    <!-- Dropdown hover script -->
+    <script>
+        document.querySelectorAll('.dropdown').forEach(function(drop) {
+            drop.addEventListener('mouseover', function() {
+                this.querySelector('.dropdown-content').style.display = 'block';
+            });
+            drop.addEventListener('mouseout', function() {
+                this.querySelector('.dropdown-content').style.display = 'none';
+            });
+        });
+    </script>
+</header>
+
+
+    <!-- Narrative Report Section -->
+    <section class="report-content" style="padding: 4rem 2rem; max-width: 1000px; margin: auto; font-family: sans-serif;">
+        <h1 style="text-align: center; margin-bottom: 2rem;">Narrative Report</h1>
+
+        <!-- Event Details -->
+        <div class="event-details" style="margin-bottom: 2rem;">
+            <h2>Event Title: <span style="font-weight: normal;">Peer Wellness Awareness Session</span></h2>
+            <p><strong>Date:</strong> July 18, 2025</p>
+            <p><strong>Location:</strong> TUP-Taguig Guidance Office AVR</p>
+            <p><strong>Presenters:</strong> Ariane Reyes, Joshua De Leon, Bianca Torres</p>
+            <p><strong>Observers:</strong> Ms. Elena Villanueva (Guidance Counselor), Mr. Leo Santos (PFG Adviser)</p>
+        </div>
+
+        <!-- Narrative -->
+        <div class="narrative-section" style="margin-bottom: 2rem;">
+            <h3>Introduction</h3>
+            <p>In Week 8, I submitted a late individual teaching demo due to a previous scheduling conflict. To comply with the course requirement, I created a recorded teaching session covering one of the basic skills in Home Economics. The demo was 10 to 12 minutes long and shared through a video link for evaluation. I aimed to apply all prior feedback by ensuring clear objectives, structured content, and the use of supporting visuals. However, observer feedback indicated that while the content was well-structured and informative, my delivery needed improvement. I was advised to work on voice modulation, maintain consistent eye contact with the camera, and avoid reading directly from the slides. There was also a note that some of my slides were text-heavy and could benefit from more images or icons. I took this as an opportunity to improve my script by converting full paragraphs into bullet points and began practicing voice projection and pacing using short rehearsal recordings. I also adjusted my camera position to better simulate face-to-face interaction, which helped me appear more confident and present during virtual teaching.</p>
+            
+
+            <h3>Observers’ Feedback</h3>
+            <p>Ms. Villanueva praised the presenters' clarity and composure throughout the session. Mr. Santos noted that the activity demonstrated the students’ readiness to serve as peer facilitators and contribute to the university’s mental health initiatives.</p>
+
+            
+        </div>
+
+        <!-- Documentary Photos -->
+        <div class="photo-documentation">
+            <h3 style="margin-top: 3rem; text-align: center;">Documentation</h3>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="images/documentation/week8.jpg" alt="Session Overview">
+                    <div class="photo-caption">Opening remarks during the wellness session</div>
+                </div>
+                <div class="photo-item">
+                    <img src="images/documentation/week8.1.jpg" alt="Peer Discussion">
+                    <div class="photo-caption">Peer group discussion on mental health support</div>
+                </div>
+                <div class="photo-item">
+                    <img src="images/documentation/week8.2.jpg" alt="Role Playing Activity">
+                    <div class="photo-caption">Participants role-playing peer listening techniques</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-full">
+                <div class="footer-logo">
+                    <a class="footer-site-logo" href="#"><img src="images/logo.png" alt="Homepage"></a>
+                </div>
+
+               
+            </div>
+        </div>
+
+        <div class="row footer-bottom">
+            <div class="col-twelve">
+                <div class="copyright">
+                    <span>© 2025 Technological University of the Philippines - Taguig</span>
+                    <span>Design by <a href="https://www.styleshout.com/">styleshout</a></span>
+                </div>
+                <div class="go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top"><i class="im im-arrow-up"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

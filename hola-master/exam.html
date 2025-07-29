@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exam Picture Slider</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Lightbox2 CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+    }
+
+    .slider-section {
+      padding: 60px 0;
+      background: #fff;
+      text-align: center;
+    }
+
+    .slider-section h2 {
+      margin-bottom: 20px;
+      font-size: 2em;
+      color: #333;
+    }
+
+    .owl-carousel .item {
+      position: relative;
+      padding: 15px;
+    }
+
+    .owl-carousel .item a {
+      display: block;
+    }
+
+    .owl-carousel .item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .owl-carousel .item img:hover {
+      transform: scale(1.02);
+    }
+
+    .desc {
+      margin-top: 15px;
+      color: #555;
+    }
+
+    .custom-nav {
+      margin-top: 20px;
+    }
+
+    .custom-nav button {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: background 0.3s;
+    }
+
+    .custom-nav button:hover {
+      background: #555;
+    }
+
+    .custom-nav i {
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+<section class="slider-section">
+  <h2>Test Question Slideshow</h2>
+  
+  <div class="owl-carousel owl-theme">
+    <div class="item">
+      <a href="images/Test1.png" data-lightbox="exam" data-title="Test Question #1">
+        <img src="images/Test1.png" alt="Test 1">
+      </a>
+      <div class="desc">Test Question #1</div>
+    </div>
+    <div class="item">
+      <a href="images/Test2.png" data-lightbox="exam" data-title="Test Question #2">
+        <img src="images/Test2.png" alt="Test 2">
+      </a>
+      <div class="desc">Test Question #2</div>
+    </div>
+    <div class="item">
+      <a href="images/Test1.png" data-lightbox="exam" data-title="Test Question #3">
+        <img src="images/Test1.png" alt="Test 3">
+      </a>
+      <div class="desc">Test Question #3</div>
+    </div>
+    <!-- Add more slides as needed -->
+  </div>
+
+  <!-- Custom navigation buttons -->
+  <div class="custom-nav">
+    <button id="prevBtn"><i class="fas fa-arrow-left"></i> Back</button>
+    <button id="nextBtn">Next <i class="fas fa-arrow-right"></i></button>
+  </div>
+</section>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<!-- Lightbox2 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+    var owl = $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: false,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      responsive: {
+        0: { items: 2 },
+        768: { items: 2 },
+        1024: { items: 2 }
+      }
+    });
+
+    $('#nextBtn').click(function() {
+      owl.trigger('next.owl.carousel');
+    });
+
+    $('#prevBtn').click(function() {
+      owl.trigger('prev.owl.carousel');
+    });
+  });
+</script>
+
+</body>
+</html>

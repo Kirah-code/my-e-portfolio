@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZipGrade‑Style Exam</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Georgia', serif;
+      background: #f8f1e8;
+      margin: 0; padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fffaf4;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #6d4c41;
+    }
+    .question-block {
+      margin-bottom: 25px;
+    }
+    .question-block h3 {
+      margin-bottom: 10px;
+    }
+    .choices label {
+      display: inline-block;
+      margin-right: 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .feedback {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+    .result-correct { color: green; }
+    .result-wrong { color: red; }
+    #submitBtn, #downloadBtn {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #submitBtn {
+      background: #6d4c41; color: #fff;
+    }
+    #downloadBtn {
+      background: #4caf50; color: #fff;
+      display: none;
+    }
+    #scoreSummary {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Interactive Exam</h1>
+    <form id="examForm"></form>
+    <button id="submitBtn">Submit</button>
+    <button id="downloadBtn">Download Result</button>
+    <div id="scoreSummary"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('examForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const scoreSummary = document.getElementById('scoreSummary');
+
+    const questions = [
+      "What is the capital of France?", "What is 5 x 6?", "Which planet is known as the Red Planet?",
+      "What is the chemical symbol for water?", "Which is the largest ocean on Earth?",
+      "Who wrote 'Romeo and Juliet'?", "What is the square root of 81?",
+      "What gas do plants absorb from the atmosphere?", "How many continents are there?",
+      "Which animal is known as the king of the jungle?", "What is the boiling point of water in Celsius?",
+      "Who painted the Mona Lisa?", "What is the smallest prime number?",
+      "What is H2SO4 commonly known as?", "How many days are in a leap year?",
+      "Which blood type is a universal donor?", "What is the freezing point of water?",
+      "Which country hosted the 2016 Summer Olympics?", "What is the longest river in the world?",
+      "Who discovered gravity?", "What is the currency of Japan?",
+      "Which is the hardest natural substance?", "How many legs does a spider have?",
+      "What is the capital of Canada?", "What language is spoken in Brazil?",
+      "Which part of the plant conducts photosynthesis?", "What does DNA stand for?",
+      "How many degrees are in a circle?", "Which instrument has 88 keys?",
+      "What is the speed of light?", "What is the largest planet in the Solar System?",
+      "Who developed the theory of relativity?", "What is the main ingredient in bread?",
+      "Which vitamin is produced when a person is exposed to sunlight?",
+      "Which organ pumps blood through the body?", "What is 1000 x 0?",
+      "Which animal is the largest mammal?", "What is the primary language in Egypt?",
+      "How many bones in the adult human body?",
+      "Which gas is most abundant in Earth's atmosphere?",
+      "What galaxy is Earth in?", "Which instrument measures temperature?",
+      "How many zeros are in one million?", "Which shape has four equal sides?",
+      "Who is the founder of Microsoft?", "Which planet has rings?",
+      "Which element has the atomic number 1?", "Who is the author of 'Harry Potter'?",
+      "What is the capital of Australia?", "Which organ helps us breathe?"
+    ];
+    const answerKey = [
+      "A","C","B","D","A","B","C","D","A","B",
+      "C","D","A","B","C","A","C","B","A","D",
+      "B","C","D","A","B","C","A","B","D","C",
+      "A","B","C","D","A","B","C","D","A","B",
+      "C","D","A","B","C","D","A","B","C","D"
+    ];
+
+    function buildForm() {
+      questions.forEach((q, i) => {
+        const div = document.createElement('div');
+        div.className = 'question-block';
+        div.innerHTML = `
+          <h3>Q${i+1}. ${q}</h3>
+          <div class="choices">
+            ${['A','B','C','D'].map(opt =>
+              `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label>`
+            ).join('')}
+          </div>
+          <div class="feedback"></div>
+        `;
+        form.appendChild(div);
+      });
+    }
+
+    submitBtn.addEventListener('click', () => {
+      let score = 0;
+      questions.forEach((_, i) => {
+        const sel = form.querySelector(`input[name="q${i}"]:checked`);
+        const ans = sel ? sel.value : null;
+        const fb = form.children[i].querySelector('.feedback');
+        if (ans === answerKey[i]) {
+          score++;
+          fb.innerHTML = `<span class="result-correct">✅ Correct</span>`;
+        } else {
+          fb.innerHTML = `<span class="result-wrong">❌ Wrong</span> &nbsp; Correct: <strong>${answerKey[i]}</strong>`;
+        }
+      });
+
+      scoreSummary.innerHTML = `<strong>Your Score: ${score}/${questions.length}</strong>`;
+      submitBtn.disabled = true;
+      downloadBtn.style.display = 'block';
+    });
+
+    downloadBtn.addEventListener('click', () => window.print());
+
+    buildForm();
+  </script>
+</body>
+</html>
